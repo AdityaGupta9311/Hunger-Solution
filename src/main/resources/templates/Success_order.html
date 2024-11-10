@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hunger Solution</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+</head>
+<body>
+	<div class="container-fluid">
+		<div th:include="header2.html:: header1"></div>
+	</div>
+	<div class="container">
+		<div th:include="header.html:: header"></div>
+	</div>
+<div class="container" style="text-align: center;margin-top: 3%">
+<div class="row">
+<div class="col-md-12">
+	<h2>Your order is successfully placed!!!</h2>
+	<span>Your order number is #<span th:text="${orderid}"></span></span>
+</div>
+</div>
+<div class="row" style="margin-top: 1%">
+<div class="col-md-12">
+	<a th:href="@{/menupage/{custid}(custid=${custid})}" class="btn btn-info">Continue Shopping</a>
+</div>
+</div>
+</div>
+	
+	</body>
+</html>

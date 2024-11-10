@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hunger Solution</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+</head>
+<body>
+	<div class="container-fluid">
+		<div th:include="header2.html:: header1"></div>
+	</div>
+	<div class="container">
+		<div th:include="header.html:: header"></div>
+	</div>
+	<div class="container">
+		<div class="row" style="margin-top: 2%">
+			<div class="col-md-4">
+				<div th:include="side_menu.html:: sidebar"></div>
+			</div>
+
+			<div class="col-md-8" style="margin-left: -90px; margin-top: -15px">
+				<h2>Edit Profile</h2>
+				<div th:if="${param.success}">
+					<div class="alert alert-info">Profile Update Successfully!!</div>
+				</div>
+
+				<form th:action="@{/update_profile/{id}(id=${custid})}"
+					th:object=${cust} method="post" id="myform">
+					<div class="card" style="width: 400px;">
+						<div class="form-group row">
+							<div class="col-sm-6">
+								<label class="form-label">Name <sup
+									style="color: red; font-size: 15px">*</sup>
+								</label> <input type="text" class="form-control"
+									placeholder="Enter Name" style="width: 250px;"
+									name="name" th:field="*{name}" required>
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col-sm-6">
+								<label class="form-label">Alternate Number <sup
+									style="color: red; font-size: 15px">*</sup>
+								</label> <input type="text" class="form-control"
+									placeholder="Enter Alternate number"
+									style="width: 250px;" name="contact2"
+									th:field="*{contact2}" required>
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col-sm-6">
+								<label class="form-label">Address<sup
+									style="color: red; font-size: 15px">*</sup>
+								</label>
+								<textarea class="form-control" style="width: 300px;height: 100px"
+								name="address" th:field="*{address}"></textarea>
+							</div>
+						</div>
+
+						<div class="form-group row">
+							<div class="col-sm-6">
+								<label class="form-label">City <sup
+									style="color: red; font-size: 15px">*</sup>
+								</label> <input type="text" class="form-control"
+									placeholder="Enter City" style="width: 250px;"
+									name="city" th:field="*{city}" required>
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col-sm-6">
+								<label class="form-label">State<sup
+									style="color: red; font-size: 15px">*</sup>
+								</label> <select class="form-control"
+									style="width: 250px;" name="state"
+									th:field="*{state}" >
+									<option value=""  >Please Select</option>
+									 <option th:each="allstate : ${allstate}" 
+                th:value="${allstate.name}" 
+                th:text="${allstate.name}"
+                th:selected="${state}">
+								</select>
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col-sm-6">
+								<label class="form-label">Zip Code<sup
+									style="color: red; font-size: 15px">*</sup>
+								</label> <input type="text" class="form-control"
+									placeholder="Enter Zip Code"
+									style="width: 250px;" name="zip"
+									th:field="*{zip}" required>
+
+							</div>
+						</div>
+
+						<div class="form-group row">
+							<div class="col-sm-3">
+								<a>Cancel</a>
+							</div>
+							<div class="col-sm-6">
+								<button type="submit" id="submitbutton" 
+									class="btn btn-success">Update</button>
+							</div>
+						</div>
+
+					</div>
+				</form>
+			</div>
+
+		</div>
+	</div>
+
+	<script>
+		function checkpassword() {
+
+			const newpas = document.getElementsByName("new_password")[0].value;
+			const confirmpas = document.getElementsByName("confirm_password")[0].value;
+			if (newpas == confirmpas) {
+				document.getElementById("submitbutton").click();
+			} else {
+				alert("New & Confirm Password Doesn't Match!!!");
+			}
+		}
+	</script>
+</body>
+</html>

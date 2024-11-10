@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+
+<title>Hunger Solution</title>
+</head>
+<body style="background-color: lightgrey;">
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+
+
+	<div class="container-fluid">
+		<div th:include="admin_header.html:: adminheader"></div>
+	</div>
+	<div class="container">
+		<div style="text-align: center; margin-top: 2%; margin-bottom: 2%">
+			<h1 style="font-size: 3rem">
+				<b>Update Orders</b>
+			</h1>
+		</div>
+	</div>
+
+	<form th:action="@{/saveupdateproducts}" enctype="multipart/form-data"
+		method="POST" th:object=${ordersdetail}>
+		
+		<div class="container"
+			style="border: 1px solid #ddd; background-color: white; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin-bottom: 2%">
+			<div class="row">
+				<div class="col-md-8" style="border: 1px solid #ddd;">
+					<h4
+						style="padding: 2%; padding-left: 1%; border: 1px solid #ddd; margin-left: -2.2%; margin-right: -2.2%; margin-top: 0%;">Placed
+						Order</h4>
+					<div class="form-group row" style="margin-top: 3%">
+						<div class="col-sm-6">
+							<label class="form-label">Name <sup
+								style="color: red; font-size: 15px">*</sup>
+							</label> <input type="text" class="form-control" placeholder="Enter Name"
+								name="name" th:field="*{name}" readonly>
+		<input type="hidden" name="id" th:field="*{id}" />
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-6">
+							<label class="form-label">Email<sup
+								style="color: red; font-size: 15px">*</sup>
+							</label> <input type="text" class="form-control"
+								placeholder="Enter Email" name="email" th:field="*{email}"
+								readonly>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-6">
+							<label class="form-label">Main Contact No <sup
+								style="color: red; font-size: 15px">*</sup>
+							</label> <input type="text" class="form-control"
+								placeholder="Main Contact number" th:field="*{contact1}"
+								name="contact1" readonly>
+						</div>
+						<div class="col-sm-6">
+							<label class="form-label">Alternate Number </label> <input
+								type="text" class="form-control"
+								placeholder="Enter Alternate number" th:field="*{contact2}"
+								name="contact2" readonly>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-6">
+							<label class="form-label">Address<sup
+								style="color: red; font-size: 15px">*</sup>
+							</label>
+							<textarea class="form-control" style="height: 50px"
+								name="address" readonly th:field="*{address}"></textarea>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-6">
+							<label class="form-label">State<sup
+								style="color: red; font-size: 15px">*</sup>
+							</label> <input type="text" class="form-control"
+								placeholder="Enter State" name="state" th:field="*{state}"
+								readonly>
+						</div>
+						<div class="col-sm-6">
+							<label class="form-label">City<sup
+								style="color: red; font-size: 15px">*</sup>
+							</label> <input type="text" class="form-control" placeholder="Enter City"
+								name="city" th:field="*{city}" readonly>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-6">
+							<label class="form-label">Zip<sup
+								style="color: red; font-size: 15px">*</sup>
+							</label> <input type="text" class="form-control"
+								placeholder="Enter Zip Code" th:field="*{zip}" name="zip"
+								readonly>
+						</div>
+					</div>
+
+				</div>
+				<div class="col-md-4" style="border: 1px solid #ddd;">
+					<h4
+						style="padding: 4.3%; padding-left: 1%; border: 1px solid #ddd; margin-left: -4.2%; margin-right: -4.2%; margin-top: 0%;">
+						Payment Method <sup style="color: red; font-size: 15px;">*</sup>
+					</h4>
+					<div class="form-group row" style="margin-top: 5%;">
+						<div class="col-sm-6">
+							<input type="radio" name="payment_method"
+								value="Cash On Delivery" th:field="*{payment_method}"  > Cash
+							On Delivery<br> <input type="radio" name="payment_method"
+								th:field="*{payment_method}" value="Credit Card" required >
+							Credit Card<br> <input type="radio" name="payment_method"
+								value="Debit Card" th:field="*{payment_method}" required >
+							Debit Card
+						</div>
+					</div>
+					<div class="form-group row" style="margin-top: 5%">
+						<div class="col-sm-6">
+							<textarea class="form-control" style="width: 360px; height: 80px"
+								name="notes" placeholder="Enter Notes....." th:field="*{notes}" readonly></textarea>
+						</div>
+					</div>
+					<div class="form-group row" style="margin-top: 5%">
+						<div class="col-sm-6">
+							<label class="form-label">Order Status<sup
+								style="color: red; font-size: 15px">*</sup>
+							</label> <br> 
+							<input type="radio" name="status" value="Pending" th:field="*{status}"  required> Pending <br> 
+							<input type="radio" name="status" th:field="*{status}" value="Processing" required > Processing<br>
+							 <input type="radio" name="status"value="Done" th:field="*{status}" required > Done
+						</div>
+					</div>
+					<h4
+						style="padding: 4.3%; padding-left: 1%; border: 1px solid #ddd; margin-left: -4.2%; margin-right: -4.2%; margin-top: 0%;">
+						Order Review<sup style="color: red; font-size: 15px;">*</sup>
+					</h4>
+					<div class="form-group row" style="margin-top: 5%">
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Products</th>
+									<th>Price</th>
+									<th>Qty</th>
+									<th>Total</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="myorderdetail,iterStat : ${orderitems}">
+									<td th:text="${myorderdetail.product_name}"></td>
+									<td th:text="${myorderdetail.price}"></td>
+									<td th:text="${myorderdetail.qty}"></td>
+									<td th:text="${myorderdetail.subtotal}"></td>
+									<td><input type="hidden" name="product_id"
+										th:value="${myorderdetail.product_id}" /> <input
+										type="hidden" name="product_name"
+										th:value="${myorderdetail.product_name}" /> <input
+										type="hidden" name="price" th:value="${myorderdetail.price}" />
+										<input type="hidden" name="qty"
+										th:value="${myorderdetail.qty}" /> <input type="hidden"
+										name="subtotal" th:value="${myorderdetail.subtotal}" /></td>
+
+								</tr>
+								<tr>
+									<th>Total</th>
+									<td></td>
+									<td><input type="hidden" name="grand_total"
+										th:value="${grand_total}" th:field="*{grand_total}" /> <input
+										type="hidden" name="customer_id" th:field="*{customer_id}"
+										readonly></td>
+									<th th:text="Rs+' '+ ${ordergrandtotal}"></th>
+								</tr>
+								<tr>
+									<th colspan="5"><button type="submit" style="width: 100%"
+											class="btn btn-success">Update Order</button></th>
+								</tr>
+
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</form>
+</body>
+</html>

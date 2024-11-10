@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Hunger Solution</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons --> 
+<!--   <link href="images/favicon.png" rel="icon"> -->
+<!--   <link href="images/apple-touch-icon.png" rel="apple-touch-icon"> -->
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Delicious
+  * Template URL: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/
+  * Updated: Mar 17 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Top Bar ======= -->
+  <section id="topbar" class="d-flex align-items-center fixed-top topbar-transparent">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-center justify-content-lg-start">
+      <i class="bi bi-phone d-flex align-items-center"><span>+91 8570988860</span></i>
+      <i class="bi bi-clock ms-4 d-none d-lg-flex align-items-center"><span>Mon-Sat: 11:00 AM - 11:00 PM</span></i>
+    </div>
+  </section>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center header-transparent">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <div class="logo me-auto">
+        <h1><a href="index.html">Hunger Solution</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+<!--         <a href="index.html"><img src="images/logo.png" alt="" class="img-fluid"></a> -->
+      </div>
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" th:href="@{/menupage/{custid}(custid=${custid})}">Menu</a></li>
+          <li><a class="nav-link scrollto" th:href="@{/contactususpage/{custid}(custid=${custid})}">Contact</a></li>
+          <li><a class="nav-link scrollto" th:href="@{/aboutuspage/{custid}(custid=${custid})}">About</a></li>
+          <li><a class="nav-link scrollto" href="#specials">Specials</a></li>
+          <li><a class="nav-link scrollto" href="#events">Events</a></li>
+          <li class="dropdown" hidden><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#">Drop Down 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Drop Down 2</a></li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+            </ul>
+          </li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+        <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+        <div class="carousel-inner" role="listbox">
+
+          <!-- Slide 1 -->
+          <div class="carousel-item active" style="background-image: url(/images/slide/slide-1.jpg);">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2 class="animate__animated animate__fadeInDown"><span>Hunger</span> Solution</h2>
+                <p class="animate__animated animate__fadeInUp">Enhance customer loyalty with personalized experiences tailored to individual preferences. 
+                Our platform remembers previous orders, favorite dishes, and special requests, making reordering a breeze.
+                 Customers can enjoy personalized recommendations and exclusive offers,
+                 turning every interaction into an opportunity to build stronger relationships and increase repeat business.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-item" style="background-image: url(/images/slide/slide-2.jpg);">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2 class="animate__animated animate__fadeInDown">Hunger Solution</h2>
+                <p class="animate__animated animate__fadeInUp">Leverage the power of data to drive your business forward. 
+                Our web app provides comprehensive analytics and reporting tools, giving you valuable insights into customer behavior, 
+                order patterns, and operational performance. Use these insights to make informed decisions,
+                 optimize your menu, and improve service efficiency, ensuring your delivery business stays ahead of the competition.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="carousel-item" style="background-image: url(/images/slide/slide-3.jpg);">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2 class="animate__animated animate__fadeInDown">Hunger Solution</h2>
+                <p class="animate__animated animate__fadeInUp">Delight your customers with a personalized and engaging experience.
+                 Our platform allows you to offer tailored promotions, loyalty rewards, and customized meal suggestions based on individual preferences and past orders.
+                 By creating a more personalized interaction, you can foster stronger customer relationships and encourage repeat business.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+        </a>
+
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        </a>
+
+      </div>
+    </div>
+  </section><!-- End Hero -->
+
+
+    <!-- ======= Whu Us Section ======= -->
+    <section id="why-us" class="why-us">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Why choose <span>Hunger Solution</span></h2>
+          <p>A well-implemented web application for a food delivery service enhances operational efficiency, improves customer satisfaction, and
+           provides valuable data insights. </p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-4">
+            <div class="box">
+              <span>01</span>
+              <h4>Convenience and Accessibility</h4>
+              <p><b>User-Friendly Interface:</b> A well-designed web app provides an intuitive and easy-to-navigate interface for customers to browse menus, place orders, and track deliveries.<br>
+<b>24/7 Availability:</b> Customers can place orders anytime, even outside of regular business hours, leading to increased sales and customer satisfaction.<br>
+<b>Cross-Platform Access:</b> Web applications can be accessed from any device with internet connectivity, including desktops, laptops, tablets, and smartphones.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mt-4 mt-lg-0">
+            <div class="box">
+              <span>02</span>
+              <h4>Improved Customer Experience</h4>
+              <p><b>Personalized Experience:</b> The web app can store customer preferences, previous orders, and payment information for a faster and more personalized ordering experience.<br>
+<b>Loyalty Programs:</b> Implementing loyalty programs and offering personalized discounts or promotions can encourage repeat business.<br>
+<b>Feedback and Reviews:</b> Customers can easily leave feedback and reviews, helping the business to improve and build a positive reputation.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mt-4 mt-lg-0">
+            <div class="box">
+              <span>03</span>
+              <h4>Cost-Effectiveness</h4>
+              <p><b>Reduced Overheads:</b> Automating order processing and inventory management can reduce labor costs and operational overheads.<br>
+<b>Marketing Efficiency:</b> Digital marketing through the web app can be more cost-effective and targeted compared to traditional marketing methods.<br>
+<b>Lower Maintenance:</b> Web apps often have lower maintenance costs compared to native apps, as they don’t require separate versions for different operating systems.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Whu Us Section -->
+
+
+    <!-- ======= Specials Section ======= -->
+    <section id="specials" class="specials">
+      <div class="container">
+        <div class="section-title">
+          <h2>Check our <span>Specials</span></h2>
+          <p>Discover the best deals and exclusive offers with our "Check Our Specials" feature.
+           Our web app keeps you updated with the latest discounts, meal combos, and limited-time offers, 
+           ensuring you always get the best value for your money.</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-3">
+            <ul class="nav nav-tabs flex-column">
+              <li class="nav-item">
+                <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">Burger Combo</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-2">Family Pizza Pack</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-3">Desert Special</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-4">Pasta</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#tab-5">Momos</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-9 mt-4 mt-lg-0">
+            <div class="tab-content">
+              <div class="tab-pane active show" id="tab-1">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Burger Combo</h3>
+                    <p class="fst-italic">Introducing our signature Burger Combo! This mouthwatering delight features a juicy, perfectly seasoned burger topped with fresh lettuce, ripe tomatoes, melted cheese, and our secret sauce, all nestled in a soft, toasted bun.</p>
+                    <p>
+                  Accompanied by a generous serving of crispy fries and an ice-cold beverage of your choice, our Burger Combo offers an irresistible blend of flavors that will leave you craving for more. Treat yourself to this ultimate comfort food experience today!
+</p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="/images/Burger Combo.jpeg" alt="" style="border-radius: 200px" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="tab-2">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Family Pizza Pack</h3>
+                    <p class="fst-italic">Discover the ultimate treat with our Pizza Combo For Family! This delectable combo includes a large, hand-tossed pizza topped with your choice of premium ingredients, ensuring every slice is a burst of flavor.</p>
+                    <p>Perfect for sharing, it comes with a side of crispy garlic bread, a fresh garden salad,one bottle of cold drink,one large Italian Pizza, one bowl of Italian Pasta, and a selection of refreshing beverages.</p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="/images/Family Pizza Pack.jpg" alt="" style="border-radius: 200px" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="tab-3">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Chocolate Lava Cake</h3>
+                    <p class="fst-italic">Indulge in pure decadence with our Chocolate Lava Cake! This dessert sensation features a rich, moist chocolate cake with a molten, gooey center that oozes warm, velvety chocolate with every bite.</p>
+                    <p>Served with a scoop of creamy vanilla ice cream and a drizzle of raspberry sauce, our Chocolate Lava Cake is the perfect treat to satisfy your sweet cravings. Ideal for sharing or savoring solo, this dessert promises an unforgettable, blissful experience for every chocolate lover. Treat yourself to this irresistible delight today!</p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="/images/Chocolate Lava Cake.jpg" alt="" style="border-radius: 200px" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="tab-4">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>White Sauce Pasta</h3>
+                    <p class="fst-italic">Savor the exquisite flavors of our White Sauce Pasta! This delightful dish features perfectly cooked al dente pasta enveloped in a rich, creamy white sauce, infused with aromatic garlic and herbs. </p>
+                    <p>Garnished with freshly grated Parmesan cheese and a sprinkle of parsley, every bite offers a luxurious, melt-in-your-mouth experience. Whether you're a fan of classic Italian cuisine or simply looking for a comforting meal, our White Sauce Pasta is sure to satisfy your cravings and leave you wanting more. Enjoy a taste of culinary elegance today!</p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="/images/White Sauce Pasta.jpg" style="border-radius: 200px" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="tab-5">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Paneer Momos</h3>
+                    <p class="fst-italic">Experience the irresistible charm of our Momos! These delicate dumplings are filled with a savory mixture of finely chopped vegetables or succulent meats, seasoned with aromatic spices.</p>
+                    <p>Steamed to perfection, our Momos are served with a side of spicy dipping sauce that adds just the right amount of kick. Perfect as an appetizer or a satisfying snack, these little pockets of flavor are a favorite for all ages. Indulge in our Momos today and take your taste buds on a delightful journey!</p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="/images/Panner Momos.jpg" style="border-radius: 200px" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Specials Section -->
+
+    <!-- ======= Events Section ======= -->
+    <section id="events" class="events">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Bulk Order <span>Accept</span> For Your Special Events</h2>
+        </div>
+
+        <div class="events-slider swiper">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="row event-item">
+                <div class="col-lg-6">
+                  <img src="/images/event-birthday.jpg"  class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-6 pt-4 pt-lg-0 content">
+                  <h3>Birthday Parties</h3>
+                  <div class="price">
+                    <p><span>&#8377;180 Per Person</span></p>
+                  </div>
+                  <p class="fst-italic">
+ Whether you're hosting an intimate gathering or a grand party, our delicious and diverse menu is perfect for any birthday event. Here’s why our bulk order service is the best choice for your celebration.</p>
+                  <ul>
+                    <li><i class="bi bi-check-circle"></i> Wide Variety of Choices: Choose from an extensive range of appetizers, main courses, desserts, and beverages to create the perfect birthday feast.</li>
+                    <li><i class="bi bi-check-circle"></i> Customization: Tailor the menu to your preferences and dietary needs, ensuring that every guest enjoys their meal.</li>
+                    <li><i class="bi bi-check-circle"></i> Quality and Freshness: We use only the finest, freshest ingredients to prepare your orders, guaranteeing a delicious dining experience.</li>
+                  </ul>
+                  <p>
+Celebrate in style and make your birthday event unforgettable with our bulk order service. Contact us today to discuss your needs and place your order!</p>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="row event-item">
+                <div class="col-lg-6">
+                  <img src="/images/event-private.jpg" style="height: 500px" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-6 pt-4 pt-lg-0 content">
+                  <h3>Private Parties</h3>
+                  <div class="price">
+                    <p><span>&#8377;250 Per Person</span></p>
+                  </div>
+                  <p class="fst-italic">
+Ensure your guests enjoy an exceptional dining experience with our bulk order services. Whether it's an intimate gathering or an extravagant affair, our tailored catering options are designed to meet all your needs. Here’s what we offer: </p>
+                  <ul>
+                    <li><i class="bi bi-check-circle"></i> Extensive Menu Selection: Choose from a diverse range of gourmet appetizers, main courses, sides, and desserts, crafted to delight every palate.</li>
+                    <li><i class="bi bi-check-circle"></i> Premium Quality: We use the highest quality ingredients, prepared by our skilled chefs to ensure every dish is flavorful and fresh.</li>
+                    <li><i class="bi bi-check-circle"></i> Competitive Pricing: Enjoy great value with our bulk order pricing, allowing you to cater to your guests without exceeding your budget.</li>
+                  </ul>
+                  <p>
+Transform your private party into an unforgettable event with our exceptional bulk order catering services. Reach out to us today to discuss your requirements and secure your booking!</p>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="row event-item">
+                <div class="col-lg-6">
+                  <img src="/images/event-custom.jpg" style="height: 500px" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-6 pt-4 pt-lg-0 content">
+                  <h3>Custom Parties</h3>
+                  <div class="price">
+                    <p><span>&#8377;110 Per Person</span></p>
+                  </div>
+                  <p class="fst-italic">
+Here are some details you can include in your promotion for bulk order acceptance for custom party events:</p>
+                  <ul>
+                    <li><i class="bi bi-check-circle"></i> Discounts: Offer special discounts or pricing tiers for bulk orders. For example, you can offer a percentage discount based on the quantity of items ordered.</li>
+                    <li><i class="bi bi-check-circle"></i> Customization Options: Highlight the flexibility in customization for bulk orders. Mention that customers can personalize their orders according to their event theme, preferences, and dietary requirements.</li>
+                    <li><i class="bi bi-check-circle"></i> Special Add-ons: Consider offering special add-ons or complementary items for bulk orders, such as free dessert platters, party decorations, or personalized messages.</li>
+                  </ul>
+                  <p>
+By incorporating these details, you can create a compelling promotion for bulk order acceptance for custom party events, attracting customers and encouraging them to choose your services for their special occasions.                  </p>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section><!-- End Events Section -->
+
+       <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials">
+      <div class="container position-relative">
+
+        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="/images/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                <h3>Saul Goodman</h3>
+                <h4>Ceo &amp; Founder</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+ I was blown away by the speed and quality of the service! The food arrived hot and fresh, and it tasted amazing. This web app has made organizing our office lunches so much easier. Highly recommend it!                 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="/images/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+                <h3>Sara Wilsson</h3>
+                <h4>Designer</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  As someone who hosts a lot of custom parties, this app has been a lifesaver. The ability to customize orders and ensure everything is perfect has taken a lot of stress off my shoulders. The quality of the food and the professionalism of the service are unbeatable.
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="/images/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
+                <h3>Jena Karlis</h3>
+                <h4>Store Owner</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+             I've used this service for multiple events, including birthday parties and private gatherings. The bulk order option is fantastic, and the food is always a hit with our guests. It makes hosting events so much more enjoyable. Thank you!
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="/images/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
+                <h3>Matt Brandon</h3>
+                <h4>Freelancer</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  What sets this web app apart is the attention to detail and the commitment to customer satisfaction. Every order we've placed has been perfect, and the delivery is consistently reliable. It's become our go-to solution for both personal and corporate events.
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="/images/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
+                <h3>John Larson</h3>
+                <h4>Entrepreneur</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                This hunger solution delivery web app is a game-changer! The variety of food options is impressive, and the delivery is always on time. It's perfect for our family's busy schedule. Plus, the customer service is top-notch. We couldn't be happier!"
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section><!-- End Testimonials Section -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <h3>Hunger Solution</h3>
+      <p>Delight in our curated meals, perfectly tailored for every occasion, from intimate gatherings to grand celebrations, delivered with unmatched convenience and care.</p>
+      <div class="social-links">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+      <div class="copyright">
+        &copy; Copyright <strong><span>Hunger Solution</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/ -->
+        Designed by Gourav
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="/js/main.js"></script>
+
+</body>
+
+</html>

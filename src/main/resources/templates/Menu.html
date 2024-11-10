@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hunger Solution</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+</head>
+<body>
+	<div class="container-fluid">
+		<div th:include="header2.html:: header1"></div>
+	</div>
+	<div class="container">
+		<div th:include="header.html:: header"></div>
+	</div>
+	<div class="container-fluid" style="background-color: #e9e7e7" >
+        <div th:each="productChunk : ${productChunks}">	
+            <div class="row" style="margin-left: 20px;margin-top: 2%;margin-bottom: 2%">
+                <div class="col-md-3 mb-4"  th:each="product : ${productChunk}">
+<form th:action="@{/additemincart/{custid}(custid=${custid})}" method="Post">
+	<div class="card" style="width: 302px;border: 1px solid #ddd;background-color: white;"> 
+					<img class="card-img-top" th:src="@{'/images/Pizza/' + ${product.image_file}}"  style="width: 300px" alt="Card image cap">
+					<div class="card-body" style="padding-left: 6px">
+						<h5 class="card-title" th:text="&#8377;+${product.price}" style="font-size: 15px;font-weight: 700"> </h5>
+						<h5 class="card-title" th:text="${product.name}" style="font-weight: bold;font-style: italic;font-size: 20px"></h5>
+						<p class="card-text" th:text="${product.description}" ></p>
+						<input type="number" style="width: 80px" name="qty" required  />
+						<input type="hidden" style="width: 80px" name="price" th:value="${product.price}" />
+						<input type="hidden" style="width: 80px" name="product_id" th:value="${product.id}" />
+						<input type="hidden" style="width: 80px" name="product_name" th:value="${product.name}" />
+						 <button  style="color: #28a745;border-color: #28a745;" type="submit" class="btn btn">Add to cart</button>
+					</div>
+				</div>
+				     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+				
+<!-- 			
+<!-- 		<div class="row" style="margin-left: 20px;margin-top: 2%" th:each="product, stat : ${allprodcttoshowmenu}"> -->
+<!-- 			<div class="col-md-3 mb-4"> -->
+<!-- 				<div class="card" style="width: 302px;border: 1px solid #ddd;background-color: white;"> -->
+<!-- 					<img class="card-img-top" th:src="@{'/images/' + ${product.image_file}}"  style="width: 300px" alt="Card image cap"> -->
+<!-- 					<div class="card-body" style="padding-left: 6px"> -->
+<!-- 						<h5 class="card-title" th:text="&#8377;+${product.price}" style="font-size: 15px;font-weight: 700"> </h5> -->
+<!-- 						<h5 class="card-title" th:text="${product.name}" style="font-weight: bold;font-style: italic;font-size: 20px"></h5> -->
+<!-- 						<p class="card-text" th:text="${product.description}" ></p> -->
+<!-- 						<input type="number" style="width: 80px" name="qty"  /> <a href="#" style="color: #28a745;border-color: #28a745;" class="btn btn">Add to cart</a> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 			 <div class="w-100" th:if="${stat.index % 4 == 3}"></div> -->
+<!-- 		</div> -->
+
+
+<!-- Wrap cards in rows of 4 -->
+<!--                     <div class="card"> -->
+<!--                         <div class="card-body"> -->
+<!--                             <h5 class="card-title" th:text="${product.name}">Product Name</h5> -->
+<!--                             <p class="card-text" th:text="${product.description}">Product Description</p> -->
+<!--                             <p class="card-text"> -->
+<!--                                 <small class="text-muted">Price: $<span th:text="${product.price}">0.00</span></small> -->
+<!--                             </p> -->
+<!--                         </div> -->
+<!--                     </div> -->
+<!--                 </div> -->
+<!--             </div> -->
+<!--         </div> -->
+<!--     </div> -->
+</body>
+</html>

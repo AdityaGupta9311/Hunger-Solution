@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hunger Solution</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+</head>
+<body>
+	<div class="container-fluid">
+		<div th:include="header2.html:: header1"></div>
+	</div>
+	<div class="container">
+		<div th:include="header.html:: header"></div>
+	</div>
+
+	<form th:action="@{/saveplaceorderdetails/{id}(id=${custid})}"
+		th:object=${cust} method="post" id="myform">
+		<div class="container">
+			<div class="row" style="margin-right: 0px; margin-left: 0px">
+				<div class="col-md-8" style="border: 1px solid #ddd;">
+					<h4
+						style="padding: 2%; padding-left: 1%; border: 1px solid #ddd; margin-left: -2.2%; margin-right: -2.2%; margin-top: 0%; background-color: #f4f1f1;">Placed
+						Order</h4>
+					<div class="form-group row" style="margin-top: 3%">
+						<div class="col-sm-6">
+							<label class="form-label">Name <sup
+								style="color: red; font-size: 15px">*</sup>
+							</label> <input type="text" class="form-control" placeholder="Enter Name"
+								name="name" th:field="*{name}" readonly>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-6">
+							<label class="form-label">Email<sup
+								style="color: red; font-size: 15px">*</sup>
+							</label> <input type="text" class="form-control"
+								placeholder="Enter Email" name="email" th:field="*{email}"
+								readonly>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-6">
+							<label class="form-label">Main Contact No <sup
+								style="color: red; font-size: 15px">*</sup>
+							</label> <input type="text" class="form-control"
+								placeholder="Main Contact number" th:field="*{contact1}"
+								name="contact1" readonly>
+						</div>
+						<div class="col-sm-6">
+							<label class="form-label">Alternate Number </label> <input
+								type="text" class="form-control"
+								placeholder="Enter Alternate number" th:field="*{contact2}"
+								name="contact2" readonly>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-6">
+							<label class="form-label">Address<sup
+								style="color: red; font-size: 15px">*</sup>
+							</label>
+							<textarea class="form-control" style="height: 50px"
+								name="address" readonly th:field="*{address}"></textarea>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-6">
+							<label class="form-label">State<sup
+								style="color: red; font-size: 15px">*</sup>
+							</label> <input type="text" class="form-control"
+								placeholder="Enter State" name="state" th:field="*{state}"
+								readonly>
+						</div>
+						<div class="col-sm-6">
+							<label class="form-label">City<sup
+								style="color: red; font-size: 15px">*</sup>
+							</label> <input type="text" class="form-control" placeholder="Enter City"
+								name="city" th:field="*{city}" readonly>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-6">
+							<label class="form-label">Zip<sup
+								style="color: red; font-size: 15px">*</sup>
+							</label> <input type="text" class="form-control"
+								placeholder="Enter Zip Code" th:field="*{zip}" name="zip"
+								readonly>
+						</div>
+					</div>
+
+				</div>
+				<div class="col-md-4" style="border: 1px solid #ddd;">
+					<h4
+						style="padding: 4.3%; padding-left: 1%; border: 1px solid #ddd; margin-left: -4.2%; margin-right: -4.2%; margin-top: 0%; background-color: #f4f1f1;">
+						Payment Method <sup style="color: red; font-size: 15px;">*</sup>
+					</h4>
+					<div class="form-group row" style="margin-top: 5%;">
+						<div class="col-sm-6">
+							<input type="radio" name="payment_method"
+								value="Cash On Delivery" required>Cash On Delivery<br>
+							<input type="radio" name="payment_method" value="Credit Card"
+								required> Credit Card<br> <input type="radio"
+								name="payment_method" value="Debit Card" required> Debit
+							Card
+						</div>
+					</div>
+					<div class="form-group row" style="margin-top: 5%">
+						<div class="col-sm-6">
+							<textarea class="form-control" style="width: 360px; height: 80px"
+								name="notes" placeholder="Enter Notes....."></textarea>
+						</div>
+					</div>
+					<h4
+						style="padding: 4.3%; padding-left: 1%; border: 1px solid #ddd; margin-left: -4.2%; margin-right: -4.2%; margin-top: 0%; background-color: #f4f1f1;">
+						Order Review<sup style="color: red; font-size: 15px;">*</sup>
+					</h4>
+					<div class="form-group row" style="margin-top: 5%">
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Products</th>
+									<th>Price</th>
+									<th>Qty</th>
+									<th>Total</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="myorderdetail,iterStat : ${myorderdetails}">
+									<td th:text="${myorderdetail.product_name}"></td>
+									<td th:text="${myorderdetail.price}"></td>
+									<td th:text="${myorderdetail.qty}"></td>
+									<td th:text="${myorderdetail.subtotal}"></td>
+									<td>
+									<input type="hidden" name="product_id" th:value="${myorderdetail.product_id}" /> 
+									<input type="hidden" name="product_name" th:value="${myorderdetail.product_name}" />
+									<input type="hidden" name="price" th:value="${myorderdetail.price}" /> 
+									<input type="hidden" name="qty" th:value="${myorderdetail.qty}" />
+									 <input type="hidden" name="subtotal" th:value="${myorderdetail.subtotal}" /></td>
+
+								</tr>
+								<tr>
+									<th>Total</th>
+									<td></td>
+									<td><input type="hidden" name="grand_total"
+										th:value="${totalSubtotal}" /> <input type="hidden"
+										name="customer_id" th:value="${custid}" readonly></td>
+									<th th:text="Rs+' '+ ${totalSubtotal}"></th>
+								</tr>
+								<tr>
+									<th colspan="5"><button type="submit" style="width: 100%"
+											class="btn btn-success">Place Order</button></th>
+								</tr>
+
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</form>
+	<script>
+		
+	</script>
+</body>
+</html>

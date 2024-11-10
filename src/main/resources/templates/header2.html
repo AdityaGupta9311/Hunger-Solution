@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+</head>
+<body>
+	<div th:fragment="header1">
+		<div class="container-fluid" style="padding: 10px; background: bisque">
+			<div class="row">
+				<div class="col-md-4" style="padding-left: 180px">
+					Call us for Ordering &emsp;&emsp;&emsp;<i class="fa-solid fa-phone"></i>
+					<span style="font-size: 16px; font-weight: 800">8570988860</span>
+				</div>
+				<div class="col-md-5"></div>
+				<div class="col-md-3">
+					<a th:href="@{/dashboard/{id}(id=${custid})}" style="color: black">My Account</a>
+					&emsp; 
+					<a th:href="@{/logout}" style="color: black" th:text="${custid}==null ? 'Login' : 'Logout'" >Logout</a>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

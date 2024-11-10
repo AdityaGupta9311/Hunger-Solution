@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hunger Solution</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+<style>
+body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        p {
+            margin: 10px 0;
+        }
+    </style>
+	
+</head>
+<body style="background: #fffaf3;" >
+<div class="container-fluid">
+		<div th:include="header2.html:: header1"></div>
+	</div>
+	<div class="container">
+		<div th:include="header.html:: header"></div>
+	</div>
+	<div class="container-fluid">
+<div class="row">
+<div class="col-md-6">
+<img src="/images/about.jpg" style="width: 700px;margin-left: 3%;margin-top: 4%;height: 770px"    />
+</div>
+<div class="col-md-6" >
+    <h2>Welcome to Hunger Solution!</h2>
+    <p>At Hunger Solution, we believe that food is more than just fuel; it's an experience that brings people together, creates memories, and celebrates cultures. Our mission is to make delicious food accessible to everyone, wherever you are.</p>
+
+    <h2>Who We Are</h2>
+    <p>We are a passionate team of food enthusiasts, tech innovators, and customer service champions dedicated to revolutionizing the food delivery experience. Our journey started with a simple idea: to connect people with the best local restaurants and deliver their favorite meals right to their doorstep.</p>
+
+    <h2>Our Story</h2>
+    <p>Founded in 2023, Hunger Solution was born out of a desire to make dining more convenient and enjoyable. Our founders, Gourav Bohra, recognized the growing need for a reliable, fast, and user-friendly food delivery service. With a background in both technology and the culinary arts, they set out to create a platform that combines the best of both worlds.</p>
+
+    <h2>What We Do</h2>
+    <ul>
+        <li><strong>Wide Variety of Choices:</strong> Whether you're craving sushi, pizza, burgers, or vegan delights, we have a wide selection of restaurants to choose from. Our curated list of partners ensures that there's something for everyone.</li>
+        <li><strong>Seamless Ordering Experience:</strong> Our app is designed with user experience in mind. With just a few taps, you can browse menus, place your order, and track your delivery in real-time.</li>
+        <li><strong>Fast and Reliable Delivery:</strong> We understand that when you're hungry, you want your food fast. Our network of dedicated delivery drivers ensures that your meal arrives hot and on time.</li>
+        <li><strong>Customer First Approach:</strong> Your satisfaction is our top priority. From easy ordering to exceptional customer support, we're here to ensure you have the best experience possible.</li>
+    </ul>
+
+    <h2>Our Commitment</h2>
+    <p>At Hunger Solution, we are committed to sustainability and community. We work closely with local restaurants to support small businesses and reduce our environmental impact through eco-friendly packaging and delivery practices.</p>
+
+    <p>Thank you for choosing Hunger Solution. We look forward to serving you!</p>
+</div>
+
+</div>
+</div>
+	</div>
+
+</body>
+</html>

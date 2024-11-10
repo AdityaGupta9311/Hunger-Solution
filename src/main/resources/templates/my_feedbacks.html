@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hunger Solution</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.css" />
+
+<script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
+</head>
+<body>
+	<div class="container-fluid">
+		<div th:include="header2.html:: header1"></div>
+	</div>
+	<div class="container">
+		<div th:include="header.html:: header"></div>
+	</div>
+	<div class="container">
+		<div class="row" style="margin-top: 2%">
+			<div class="col-md-4">
+				<div th:include="side_menu.html:: sidebar"></div>
+			</div>
+
+			<div class="col-md-8" style="margin-left: -90px; margin-top: -15px">
+				<h2>My Reviews</h2>
+				<table id="example" class="table table-striped table-bordered" th:object=${myfeedback}>
+					<thead>
+						<tr>
+							<th>Order No</th>
+							<th>Date</th>
+							<th>Name</th>
+							<th>Feedback</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="feedback : ${myfeedback}">
+							<td th:text="${feedback.order_id}"></td>
+							<td   th:text="${#temporals.format(feedback.added_on, 'dd-MM-yyyy')}" ></td>
+							<td th:text="${feedback.name}"></td>
+							<td th:text="${feedback.feedback}"></td>
+						</tr>
+						</tbody>
+				</table>
+			</div>
+
+		</div>
+	</div>
+
+
+	<script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
+	<script>
+		new DataTable('#example', {
+			pagingType : 'first_last_numbers'
+		});
+	</script>
+</body>
+</html>

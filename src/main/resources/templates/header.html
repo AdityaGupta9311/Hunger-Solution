@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i" rel="stylesheet">
+</head>
+<body>
+<div th:fragment="header">
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand"
+					style="font-family: Satisfy, sans-serif; font-size: 40px; color: maroon;"
+					href="#">Hunger Solution</a>
+			</div>
+			<ul class="nav navbar-nav" style="padding-left: 20%;">
+				<li ><a th:href="@{/home/{custid}(custid=${custid})}">Home</a></li>
+				<li><a href="#">|</a></li>
+				<li><a th:style="'color: ' + (${menu}==true ? 'red' : '')" th:href="@{/menupage/{custid}(custid=${custid})}">Menu</a></li>
+				<li><a href="#">|</a></li>
+				<li><a th:style="'color: ' + (${contactus}==true ? 'red' : '')" th:href="@{/contactususpage/{custid}(custid=${custid})}">Contact</a></li>
+				<li><a href="#">|</a></li>
+				<li ><a th:style="'color: ' + (${aboutus}==true ? 'red' : '')" th:href="@{/aboutuspage/{custid}(custid=${custid})}">About</a></li>
+			</ul>
+			<ul class="nav navbar-nav" style="padding-left: 10%;">
+				<li><a th:href="@{/myorderdetails/{custid}(custid=${custid})}"><i class="fa-solid fa-cart-shopping"
+						style="color: black; font-size: 20px"></i> <span
+						class='badge badge-warning' id='lblCartCount'
+						style="margin-top: -30px; background-color: red; margin-left: -5px;" th:text="${cartitemcount}==null ? '0' : ${cartitemcount}">
+							0</span></a></li>
+			</ul>
+
+		</div>
+	</nav>
+
+
+</div>
+
+</body>
+</html>

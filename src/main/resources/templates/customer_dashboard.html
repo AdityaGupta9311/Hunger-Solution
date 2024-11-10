@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hunger Solution</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+</head>
+<body>
+	<div class="container-fluid">
+		<div th:include="header2.html:: header1"></div>
+</div>
+	<div class="container">
+		<div th:include="header.html:: header"></div>
+	<div th:style="${Login}==true ? 'display: inline-block':'display: none' " class="alert alert-success" role="alert">
+  Customer logged in successfully!!!
+</div>
+	</div>
+	<div class="container" th:object="${cust}">
+		<div class="row" style="margin-top: 2%">
+			<div class="col-md-4">
+				<div th:include="side_menu.html:: sidebar"></div>
+			</div>
+			<div class="col-md-4" style="margin-left: -90px; margin-top: -15px">
+				<h2>My Account</h2>
+				<div class="card" style="width: 400px;">
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item"
+							style="background-color: lightgray; color: black">Contact
+							Information</li>
+						<li class="list-group-item">Name &emsp;&emsp;&emsp;<span th:text="*{name}"></span></li>
+						<li class="list-group-item">Email &emsp;&emsp;&emsp; <span th:text="*{email}"></span></li>
+						<li class="list-group-item">Contact&emsp;&emsp;&emsp;<span th:text="*{contact1}"></span> </li>
+						<li class="list-group-item" style="text-align: right;"><a
+							style="color: #007bff" th:href="@{/editprofile/{id}(id=${custid})}">Edit</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-md-4" style="margin-left: 56px; margin-top: 47px">
+				<div class="card" style="width: 400px;">
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item"
+							style="background-color: lightgray; color: black">Address
+							Book</li>
+						<li class="list-group-item"><span th:text="*{address}"></span></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

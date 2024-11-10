@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hunger Solution</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+</head>
+<body>
+	<div class="container-fluid">
+		<div th:include="header2.html:: header1"></div>
+	</div>
+	<div class="container">
+		<div th:include="header.html:: header"></div>
+	</div>
+	<div class="container">
+		<div class="row"
+			style="margin-top: 2%; margin-right: 0px; margin-right: 0px">
+			<div class="col-md-12"
+				style="border: 1px solid #ddd; background-color: #f4f1f1">
+				<h2>Shopping Cart</h2>
+			</div>
+		</div>
+		<div class="row" style="margin-right: 0px; margin-right: 0px">
+			<div class="col-md-12" style="border: 1px solid #ddd;">
+			<form th:action="@{/placedorderdetails/{custid}(custid=${custid})}" method="Post">
+				<table class="table" id="cartotal">
+					<thead>
+						<tr>
+							<th>Products</th>
+							<th>Price</th>
+							<th>Qty</th>
+							<th>Total</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="myorderdetail : ${myorderdetails}">
+							<td th:text="${myorderdetail.product_name}"></td>
+							<td th:text="${myorderdetail.price}"></td>
+							<td > <input type="number" name="qty" th:value="*{myorderdetail.qty}" onkeyup="setpriceacctoqty(this)" min="1" required> </td>
+							<td  ><span th:text="${myorderdetail.subtotal}" name="setrpiceqty"></span></td>
+							<td><a th:href="@{/myorderdetailsdelete/{id}/{custid}(id=${myorderdetail.id},custid=${custid})}"
+								class="btn btn-danger">Delete</a>
+						<input type="hidden" style="width: 80px" name="price" th:value="${myorderdetail.price}" />
+						<input type="hidden" style="width: 80px" name="product_id" th:value="${myorderdetail.product_id}" />
+						<input type="hidden" style="width: 80px" name="product_name" th:value="${myorderdetail.product_name}" />
+						<input type="hidden" style="width: 80px" name="subtotal" th:value="${myorderdetail.subtotal}" />
+						<input type="hidden" style="width: 80px" name="customer_id" th:value="${myorderdetail.customer_id}" />
+						<input type="hidden" style="width: 80px" name="id" th:value="${myorderdetail.id}" />
+				        <input type="hidden" name="_csrf" value="${_csrf.token}" />
+								</td>
+						</tr>
+						<tr >
+							<th >Total</th>
+							<td ></td>
+							<td > </td>
+							<th > <span id="overalltotal" th:text="Rs+' '+ ${totalSubtotal}"></span> </th>
+							<td></td>
+						</tr>
+						<tr >
+				
+							<th colspan="5">
+							<button type="submit" class="btn btn-success">Place Order</button>&emsp;
+							<a th:href="@{/menupage/{custid}(custid=${custid})}" class="btn btn-primary">Add Item</a></th>
+						</tr>
+
+					</tbody>
+				</table>
+				
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<script>
+		function setpriceacctoqty(element){
+			var i=element.parentNode.parentNode.rowIndex-1;
+			var qty=document.getElementsByName("qty")[i].value;
+			var price=document.getElementsByName("price")[i].value;
+			var total=parseFloat(price)*parseFloat(qty).toFixed(2);
+			
+		document.getElementsByName("setrpiceqty")[i].innerHTML=total;	
+		document.getElementsByName("subtotal")[i].value=total;	
+		settotprice();
+		}
+		 function settotprice(){
+             var table = document.getElementById("cartotal");            
+          var rowCount = table.rows.length;
+//           alert(rowCount);
+var total=0;
+for(var a=0;a<rowCount;a++){
+try{
+
+var Taxable_Value=document.getElementsByName("subtotal")[a].value;
+if(isNaN(Taxable_Value)||Taxable_Value===""){
+Taxable_Value=0;
+}
+	total=parseFloat(total)+parseFloat(Taxable_Value);
+}catch(err){
+}
+}
+document.getElementById("overalltotal").innerHTML="Rs "+total;
+
+}
+	</script>
+</body>
+</html>
